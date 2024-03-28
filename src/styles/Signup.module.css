@@ -26,7 +26,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 45rem;
-  height: 27rem;
+  height: 33rem;
   background-color: #b9cca6;
   border-radius: 15px;
   display: flex;
@@ -47,9 +47,9 @@
 
 .leftSide img {
   position: absolute;
-  right: 0;
+  right: -10px;
   z-index: 1;
-  top: 10px;
+  top: 70px;
   width: 21rem;
   height: 23rem;
 }
@@ -59,17 +59,18 @@
   height: 30rem;
   background-color: #597e52;
   border-radius: 5rem;
-
   transform-origin: right bottom;
-  transform: rotateZ(-40deg) translate(80px, -240px);
+  transform: rotateZ(-40deg) translate(70px, -200px);
 }
 
 .RightSide {
-  width: fit-content;
+  width: 50%;
+  height: 100%;
+  display: flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: right;
+  align-items: center;
   margin: 2rem 2rem;
   direction: rtl;
 }
@@ -101,7 +102,8 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  margin: 1rem 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .divcheckbox label {
@@ -172,3 +174,16 @@
 .formbuttons a:active {
   transform: translateY(0.2rem);
 }
+/* -------------------- */
+/* .formWrapperBg {
+    position: absolute;
+    width: 100rem;
+    height: 100rem;
+    background-color: #283f23;
+    border-radius: 15rem;
+    left: -40%;
+    top: -90%;
+    transform-origin: right bottom;
+    transform: rotateZ(-40deg);
+    overflow: hidden;
+  } */

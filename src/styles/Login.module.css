@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "Yekan";
+  src: url("../assets/Yekan.ttf") format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  font-family: "Yekan", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url(../assets/bg2.jpg);
+  backdrop-filter: blur(100px);
+}
+
+.MainWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45rem;
+  height: 27rem;
+  background-color: #b9cca6;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.leftSide {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  /* display: none; */
+}
+
+.leftSide img {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  top: 10px;
+  width: 21rem;
+  height: 23rem;
+}
+
+.leftSideBg {
+  width: 30rem;
+  height: 30rem;
+  background-color: #597e52;
+  border-radius: 5rem;
+  transform-origin: right bottom;
+  transform: rotateZ(-40deg) translate(80px, -240px);
+}
+
+.RightSide {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  direction: rtl;
+}
+
+.form h1 {
+  width: 18rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+.inputContainer input {
+  width: 18rem;
+  border: none;
+  border-bottom: 2px solid rgb(88, 88, 88);
+  padding: 0.2rem;
+  background-color: transparent;
+}
+.inputContainer label {
+  color: rgb(88, 88, 88);
+  width: 18rem;
+}
+
+.formbuttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 18rem;
+  margin-top: 1.5rem;
+}
+
+.submitbutton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #597e52;
+  color: white;
+  border-radius: 10px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.submitbutton:hover {
+  background-color: #eee8aa;
+  color: black;
+  font-size: large;
+  transition: 0.2s ease-in;
+}
+
+.submitbutton:active {
+  transform: translateY(0.2rem);
+}
+
+.formbuttons a {
+  padding: 0.5rem 1.25rem;
+  color: white;
+  background-color: #597e52;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: large;
+}
+
+.formbuttons a:hover {
+  background-color: #eee8aa;
+  color: black;
+  font-size: large;
+  transition: 0.2s ease-in;
+}
+
+.formbuttons a:active {
+  transform: translateY(0.2rem);
+}

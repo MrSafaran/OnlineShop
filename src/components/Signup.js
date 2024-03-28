@@ -17,18 +17,22 @@ const Signup = () => {
             <div className={styles.inputContainer}>
               <label>نام کاربری</label>
               <input type="text" />
+              {<span>خطا</span>}
             </div>
             <div className={styles.inputContainer}>
               <label>ایمیل</label>
               <input type="text" />
+              {<span>خطا</span>}
             </div>
             <div className={styles.inputContainer}>
               <label>پسورد</label>
               <input type="password" />
+              {<span>خطا</span>}
             </div>
             <div className={styles.inputContainer}>
               <label>تایید پسورد</label>
               <input type="password" />
+              {<span>خطا</span>}
             </div>
             <div className={styles.divcheckbox}>
               <label>شرایط سیاست حفظ حریم خصوصی را بپذیرید.</label>
