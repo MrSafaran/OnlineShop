@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 import picture from "../assets/Login.svg";
 import { validate } from "./validate";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -74,7 +75,7 @@ const Login = () => {
             </div>
             <div className={styles.formbuttons}>
               <button className={styles.submitbutton}>ورود</button>
-              <a href="#">ثبت نام</a>
+              <Link to="/Signup">ثبت نام</Link>
             </div>
           </form>
         </div>
