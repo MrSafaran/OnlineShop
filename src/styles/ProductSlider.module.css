@@ -1,0 +1,10 @@
+/* src/ProductSlider.module.css */
+.sliderContainer {
+    padding: 2rem;
+    background: #f9f9f9;
+  }
+  
+  .slick-slide {
+    margin: 0 1rem;
+  }
+  

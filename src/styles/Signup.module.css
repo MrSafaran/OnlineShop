@@ -56,7 +56,7 @@
 .leftSideBg {
   width: 31rem;
   height: 33rem;
-  background-color: #597e52;
+  background-color: #65858a;
   border-radius: 5rem;
   transform-origin: right bottom;
   transform: rotateZ(-40deg) translate(60px, -190px);
@@ -141,7 +141,7 @@
 .submitbutton {
   padding: 0.5rem 1rem;
   border: none;
-  background-color: #597e52;
+  background-color: #65858a;
   color: white;
   border-radius: 10px;
   font-size: large;
@@ -162,7 +162,7 @@
 .formbuttons a {
   padding: 0.5rem 1.25rem;
   color: white;
-  background-color: #597e52;
+  background-color: #65858a;
   text-decoration: none;
   border-radius: 10px;
   font-size: large;

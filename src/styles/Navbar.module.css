@@ -1,0 +1,133 @@
+/* src/Navbar.module.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #65858a;
+    padding: 1.1rem;
+    direction: rtl; /* RTL layout */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .navbar_brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar_brand a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar_nav {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav_item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav_item {
+    margin: 0 0.5rem;
+  }
+  
+  .nav_item a:hover {
+    color: #ddd;
+  }
+  
+  .nav_item i, .navbar_brand i {
+    margin-left: 0.5rem;
+  }
+  
+  /* Hamburger Menu Styles */
+  .navbar_toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Change color of close icon */
+  .navbar_toggle.open .fa-times {
+    color: #fff; /* Set color to white for the close icon */
+  }
+  
+  /* Tablet and small devices styles (1022px - 865px) */
+  @media (max-width: 1022px) and (min-width: 765px) {
+    .navbar {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .navbar_nav {
+      display: flex; /* Always display navigation items */
+      flex-direction: row;
+      gap: 0.8rem; /* Smaller gap */
+    }
+  
+    .navbar_toggle {
+      display: none; /* Hide hamburger menu */
+    }
+  
+    .nav_item a {
+      font-size: 0.9rem; /* Smaller font size */
+    }
+  
+    .nav_item {
+      margin: 0;
+    }
+  }
+  
+  /* Mobile devices (below 865px) */
+  @media (max-width: 764px) {
+    .navbar {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .navbar_nav {
+      display: none; /* Hide navigation items by default */
+      flex-direction: column; /* Display items in a column when visible */
+      width: 100%;
+      gap: 0.5rem;
+    }
+  
+    .navbar_nav.open {
+      display: flex; /* Show navigation items when open */
+    }
+  
+    .nav_item {
+      margin: 0;
+    }
+  
+    .nav_item a {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      text-align: right; /* Align text to the right in RTL */
+      font-size: 1rem; /* Adjust font size */
+    }
+  
+    .navbar_toggle {
+      display: block;
+    }
+  
+    /* Change color of close icon when menu is open */
+    .navbar_toggle.open .fa-times {
+      color: #fff; /* Set color to white for the close icon */
+    }
+  }
+  
