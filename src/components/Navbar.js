@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/Navbar.module.css";
 import { useState } from "react";
 
+//context
+import { CartContext } from "../contexts/CartContextProvider";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
+  const { state } = useContext(CartContext);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,10 +18,10 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_brand}>
-        <a href="/">
+        <Link to="/">
           <i className="fas fa-store"></i>
           فروشگاه هیلی‌لند
-        </a>
+        </Link>
       </div>
       <button
         className={`${styles.navbar_toggle} ${isOpen ? styles.open : ""}`}
@@ -25,46 +31,47 @@ const Navbar = () => {
       </button>
       <ul className={`${styles.navbar_nav} ${isOpen ? styles.open : ""}`}>
         <li className={styles.nav_item}>
-          <a href="/home">
+          <Link to="/home">
             <i className="fas fa-home"></i>
             خانه
-          </a>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/products">
+          <Link to="/products">
             <i className="fas fa-box"></i>
             محصولات
-          </a>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/about">
+          <Link to="/about">
             <i className="fas fa-info-circle"></i>
             درباره ما
-          </a>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/contact">
+          <Link to="/contact">
             <i className="fas fa-envelope"></i>
             ارتباط با ما
-          </a>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/cart">
+          <Link to="/cart">
             <i className="fas fa-shopping-cart"></i>
             سبدخرید
-          </a>
+            <span>{state.itemsCounter}</span>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/login">
+          <Link to="/login">
             <i className="fas fa-user"></i>
             ورود
-          </a>
+          </Link>
         </li>
         <li className={styles.nav_item}>
-          <a href="/signup">
+          <Link to="/signup">
             <i className="fas fa-user-plus"></i>
             ثبت نام
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

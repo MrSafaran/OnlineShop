@@ -15,6 +15,10 @@ html, body {
     position: relative;
   }
   
+  .landingContainer{
+    margin-top: 60px;
+  }
+
   .landingImg {
     width: 100%;
     height: 100%;
@@ -68,7 +72,57 @@ html, body {
     color: #333;
   }
   
-  .ProductSlider{
+  .Products{
     width: 100%;
     height: 100vh;
   }
+
+  /* Responsive styles */
+@media (max-width: 1024px) {
+  .landingContent {
+    padding: 1.5rem;
+  }
+
+  .landingContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .landingContent p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .landingContent {
+    padding: 1rem;
+
+  }
+
+  .landingContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .landingContent p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landingContent {
+    padding: 0.8rem;
+  }
+
+  .landingContent h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .landingContent p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  .landingContent a {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+}
