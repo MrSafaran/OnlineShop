@@ -1,10 +1,12 @@
 export const validate = (type, data) => {
   const error = {};
 
-  if (!data.username.trim()) {
-    error.username = "نام کاربری الزامیست!";
+  if (!data.email) {
+    error.email = "ایمیل الزامیست!";
+  } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+    error.email = "ایمیل وارد شده نامعتبر است!";
   } else {
-    delete error.username;
+    delete error.email;
   }
 
   if (!data.password) {
@@ -17,12 +19,10 @@ export const validate = (type, data) => {
 
   // additional validation for Signup.
   if (type === "Signup") {
-    if (!data.email) {
-      error.email = "ایمیل الزامیست!";
-    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
-      error.email = "ایمیل وارد شده نامعتبر است!";
+    if (!data.username.trim()) {
+      error.username = "نام کاربری الزامیست!";
     } else {
-      delete error.email;
+      delete error.username;
     }
 
     if (!data.confirmPassword) {

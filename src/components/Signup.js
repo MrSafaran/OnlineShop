@@ -4,6 +4,11 @@ import picture from "../assets/signup.svg";
 import { validate } from "../components/validate.js";
 import { Link } from "react-router-dom";
 
+// Import Firebase
+import { auth, db } from '../firebase/firebaseConfig.js';  // Ensure you have configured firebaseConfig.js
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+
 const Signup = () => {
   const [data, setData] = useState({
     username: "",
@@ -15,6 +20,7 @@ const Signup = () => {
 
   const [error, setError] = useState({});
   const [focus, setFocus] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setError(validate("Signup", data));
@@ -32,10 +38,31 @@ const Signup = () => {
     setFocus({ ...focus, [event.target.name]: true });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     if (!Object.keys(error).length) {
-      //toastify
+      setLoading(true);
+      try {
+        // Create user in Firebase Authentication
+        const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+        const user = userCredential.user;
+
+        // Store additional user information in Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          username: data.username,
+          email: data.email,
+          checkPolicy: data.checkPolicy,
+          userCartData:{},
+        });
+
+        alert("Signup successful!");
+        setLoading(false);
+
+      } catch (error) {
+        console.error("Error signing up:", error);
+        alert("Error signing up. Please try again.");
+        setLoading(false);
+      }
     } else {
       setFocus({
         username: true,
@@ -128,7 +155,9 @@ const Signup = () => {
               )}
             </div>
             <div className={styles.formbuttons}>
-              <button className={styles.submitbutton}>ثبت نام</button>
+              <button className={styles.submitbutton} disabled={loading}>
+                {loading ? "در حال ثبت نام..." : "ثبت نام"}
+              </button>
               <Link to="/Login">ورود</Link>
             </div>
           </form>
