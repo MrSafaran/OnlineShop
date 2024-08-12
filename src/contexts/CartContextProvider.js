@@ -10,7 +10,7 @@ const initialState= {
 
 const sumItems = items => {
     const itemsCounter = items.reduce((total, product) => total + product.quantity,0);
-    const total = items.reduce((total, product) => total + product.price*product.quantity,0).toFixed(2);
+    const total = items.reduce((total, product) => total + product.price*product.quantity,0);
     return {itemsCounter : itemsCounter , total : total }
 }
 
@@ -70,6 +70,7 @@ const cartReducer= (state , action) =>{
                 total: 0,
                 checkout : false,
             }
+            
         default:
             return state;
         

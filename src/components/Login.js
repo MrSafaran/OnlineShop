@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "../styles/Login.module.css";
 import picture from "../assets/Login.svg";
 import { validate } from "./validate";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Import Firebase
-import { auth } from '../firebase/firebaseConfig';  // Ensure you have configured firebaseConfig.js
+import { auth, db } from '../firebase/firebaseConfig';  // Ensure you have configured firebaseConfig.js
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+
+// Import UserContext
+import { UserContext } from '../contexts/UserContextProvider';
 
 const Login = () => {
   const [data, setData] = useState({
@@ -18,6 +22,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { setState } = useContext(UserContext);  // Access setState from UserContext
 
   useEffect(() => {
     setError(validate("Login", data));
@@ -36,14 +41,24 @@ const Login = () => {
     if (!Object.keys(error).length) {
       setLoading(true);
       try {
-        // Attempt to sign in with Firebase Authentication
-        await signInWithEmailAndPassword(auth, data.email, data.password);
+        // Sign in with Firebase Authentication
+        const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+        const user = userCredential.user;
+
+        // Fetch user data from Firestore
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (userDoc.exists()) {
+          // Store user data in context
+          setState(userDoc.data());
+        } else {
+          console.log("No such document!");
+        }
 
         alert("Login successful!");
         setLoading(false);
 
         // Navigate to the home page
-        navigate('/home');  // Redirect to ./home after successful login
+        navigate('/home');
 
       } catch (error) {
         console.error("Error logging in:", error);

@@ -17,14 +17,14 @@ const Product = ({ProductData}) => {
         <div className={styles.container}>
             <img className={styles.cardImage} src={ProductData.image} />
             <h3>{ProductData.title}</h3>
-            <p>{ProductData.price}</p>
+            <p>تومان {ProductData.price}</p>
             <div className={styles.linkContainer}>
-                <Link to={`/products/${ProductData.id}`}>details</Link>
+                <Link to={`/products/${ProductData.id}`}>جزئیات</Link>
                 <div className={styles.buttonContainer}>
                     {
                         isInCart(state , ProductData.id) ?
                         <button className={styles.smallButton} onClick={() => dispatch({type:'INCREASE', payload:ProductData})}>+</button> :
-                        <button onClick={() => dispatch({type:'ADD_ITEM', payload:ProductData})}>Add to cart</button>
+                        <button onClick={() => dispatch({type:'ADD_ITEM', payload:ProductData})}>افزودن به سبد‌خرید</button>
                     }
                     {quantityCount(state,ProductData.id) > 0 && <span className={styles.counter}>{quantityCount(state, ProductData.id)}</span>}
                     {quantityCount(state,ProductData.id) > 1 && <button className={styles.smallButton} onClick={() => dispatch({type:'DECREASE', payload: ProductData  })}>-</button>}

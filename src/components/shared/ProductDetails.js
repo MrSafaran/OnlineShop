@@ -1,31 +1,43 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from '../../styles/ProductDetails.module.css';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
-//context
+// Context
 import { ProductsContext } from '../../contexts/ProductContextProvider';
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
+    const { products } = useContext(ProductsContext);
+    let { id } = useParams();
+    id = parseInt(id, 10); // Ensure id is an integer
+    const product = products.find(p => p.id === id);
+    // Check if product exists
+    if (!product) {
+        return <div className={styles.loading}>Loading...</div>;
+    }
 
-    const data = useContext(ProductsContext);
-    const id = props.match.params.id;
-    const product = data[id - 1];
-    const {image , price , title , description , category} = product;
+    const { image , price , title, description , category } = product;
 
     return (
-        <div className={styles.container}>
-            <img className={styles.image} src={image} />
-            <div className={styles.textContainer}>
-                <h3>{title}</h3>
-                <p className={styles.description}>{description}</p>
-                <p className={styles.category}><span>category:</span>{category}</p>
-                <div className={styles.buttonContainer}>
-                    <span className={styles.price}>{price}</span>
-                    <Link to='/products/'>back to shop</Link>
+        <>
+            <Navbar/>
+            <div className={styles.container}>
+                <img className={styles.image} src={image} alt={title} />
+                <div className={styles.textContainer}>
+                    <h3>{title}</h3>
+                    <p className={styles.description}>{description}</p>
+                    <p className={styles.category}><span>دسته‌بندی:</span> {category === 'boy' ? "پسرونه" : "دخترونه"}</p>
+                    <div className={styles.buttonContainer}>
+                        <span className={styles.price}>تومان {price}</span>
+                        <Link to='/products/'>بازگشت به فروشگاه</Link>
+                    </div>
                 </div>
             </div>
-        </div>
+            <Footer/>
+        </>
     );
 };
+
 
 export default ProductDetails;

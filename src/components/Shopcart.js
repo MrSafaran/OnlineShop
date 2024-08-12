@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 
 //context
 import { CartContext } from '../contexts/CartContextProvider';
+import Footer from './Footer';
 
 const Shopcart = () => {
     
@@ -17,34 +18,39 @@ const Shopcart = () => {
         <>
             <Navbar/>
             <div className={styles.container}>
-                <div className={styles.cartContainer}>
-                    {state.selectedItems.map(item => <Cart key={item.id} data={item} />)}
-                </div>
+                { state.itemsCounter > 0 &&
+                    <div className={styles.cartContainer}>
+                        {state.selectedItems.map(item => <Cart key={item.id} data={item} />)}
+                    </div>
+
+                }
                 {
                     state.itemsCounter > 0 && <div className={styles.payments}>
-                        <p><span>Total items:</span>{state.itemsCounter}</p>
-                        <p><span>Total payments:</span>{state.total}</p>
+                        <h2>صورتحساب خرید</h2>
+                        <p><span> مجموع کالا ها:   </span>{state.itemsCounter}</p>
+                        <p><span>مجموع پرداختی:   </span> {state.total}</p>
                         <div className={styles.buttonContainer}>
-                            <button className={styles.clear} onClick={() => dispatch({type: 'CHECkOUT'})} >checkout</button>
-                            <button className={styles.checkout} onClick={() => dispatch({type: 'CLEAR'})} >clear</button>
+                            <button className={styles.clear} onClick={() => dispatch({type:'CHECKOUT'})} >پرداخت</button>
+                            <button className={styles.checkout} onClick={() => dispatch({type:'CLEAR'})} >حذف</button>
                         </div>
                     </div>
                 }
                 
                 {
                     state.checkout && <div className={styles.complete}>
-                        <h3>Checked out successfully</h3>
-                        <Link to='/products'>Buy More</Link>
+                        <h3>پرداخت با موفقیت انجام شد!</h3>
+                        <Link to='/products'>خرید مجدد!</Link>
                     </div>
                 }
                 
                 {
-                    !state.checkout && state.itemsCounter === 0 && <div className={styles.complete}>
-                        <h3>Want to buy?</h3>
-                        <Link to='/products'>Go to shop</Link>
+                    !state.checkout  && !(state.itemsCounter > 0)  && <div className={styles.complete}>
+                        <h3>خرید از فروشگاه؟</h3>
+                        <Link to='/products'>مشاهده محصولات</Link>
                     </div>
                 }
             </div>
+            <Footer/>
         </>
     );
 };

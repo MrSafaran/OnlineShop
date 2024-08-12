@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_brand}>
-        <Link to="/">
+        <Link to="/products">
           <i className="fas fa-store"></i>
           فروشگاه هیلی‌لند
         </Link>
@@ -43,9 +43,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li className={styles.nav_item}>
-          <Link to="/about">
-            <i className="fas fa-info-circle"></i>
-            درباره ما
+          <Link to="/cart">
+            <i className="fas fa-shopping-cart"></i>
+            سبدخرید
+            <span className={styles.item_counter}>{state.itemsCounter}</span>
           </Link>
         </li>
         <li className={styles.nav_item}>
@@ -55,10 +56,9 @@ const Navbar = () => {
           </Link>
         </li>
         <li className={styles.nav_item}>
-          <Link to="/cart">
-            <i className="fas fa-shopping-cart"></i>
-            سبدخرید
-            <span>{state.itemsCounter}</span>
+          <Link to="/about">
+            <i className="fas fa-info-circle"></i>
+            درباره ما
           </Link>
         </li>
         <li className={styles.nav_item}>

@@ -1,21 +1,16 @@
-import React, { createContext, useContext, useState } from 'react';
-import { auth, db } from './firebase';
-import { doc, setDoc } from 'firebase/firestore';
-import { setUserId } from 'firebase/analytics';
+import React, { createContext, useState } from "react";
 
+// Create UserContext
+export const UserContext = createContext();
 
-const UserData = createContext();
+const UserContextProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-const UserContextProvider = (props) => {
-
-    [userInfo , setUserInfo] = useState();
-
-
-    return (
-        <UserData.Provider value={{userInfo , setUserInfo}}>
-            {props.children}
-        </UserData.Provider>
-    );
+  return (
+    <UserContext.Provider value={{ user, setState: setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export default UserContextProvider;
