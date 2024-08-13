@@ -1,0 +1,81 @@
+.contactUsContainer {
+    direction: rtl;
+    padding: 40px;
+    margin-top: 50px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    text-align: right; /* Align text to the right for Persian */
+  }
+  
+  .contactUsContainer h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+  }
+  
+  .contactUsContainer p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .contactDetails h2,
+  .contactForm h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff9800;
+  }
+  
+  .contactDetails ul {
+    list-style-type: none;
+    padding-right: 0; /* Adjusted for Persian text */
+  }
+  
+  .contactDetails li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .contactForm {
+    margin-top: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7c7b7b;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #45a049;
+  }
+  

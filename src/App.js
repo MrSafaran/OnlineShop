@@ -4,16 +4,21 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Shopcart from "./components/Shopcart";
+import Profile from "./components/Profile";
 import Store from "./components/Store";
 import ProductDetails from  "./components/shared/ProductDetails"
 import styles from './styles/App.module.css';
+
 
 // context
 import ProductContextProvider from "./contexts/ProductContextProvider"; // store product info
 import CartContextProvider from "./contexts/CartContextProvider"; // store cart info
 import UserContextProvider from "./contexts/UserContextProvider"; // store user info
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
 
 function App() {
+
   return (
     <div className="App">
         <ProductContextProvider>
@@ -26,11 +31,15 @@ function App() {
               <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/products" element={<Store />} />
               <Route path="/cart" element={<Shopcart />} />
-              <Route exact path="/" element={<Navigate to={"/login"} />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route exact path="/" element={<Navigate to={"/home"} />} />
             </Routes>
             </UserContextProvider>
           </CartContextProvider>
         </ProductContextProvider>
+      
     </div>
   );
 }

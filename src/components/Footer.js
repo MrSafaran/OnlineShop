@@ -9,9 +9,9 @@ const Footer = () => {
         <div className={styles.row}>
           <div className={styles.column}>
             <h4>تماس با ما</h4>
-            <p>ایمیل: hilyland@onlineshop.com</p>
-            <p>تلفن:123456789</p>
-            <p>آدرس : کرج - جهانشهر</p>
+            <p>ایمیل: info@hilyland.com</p>
+            <p>تلفن:1234-567-890</p>
+            <p>آدرس : تهران، خیابان ولیعصر، پلاک ۱۰۲</p>
           </div>
           <div className={styles.column}>
             <h4>لینک‌های سریع</h4>

@@ -83,7 +83,7 @@
   }
   
   /* Tablet and small devices styles (1022px - 865px) */
-  @media (max-width: 1022px) and (min-width: 765px) {
+  @media (max-width: 1072px) and (min-width: 800px) {
     .navbar {
       flex-direction: row;
       align-items: center;
@@ -109,7 +109,7 @@
   }
   
   /* Mobile devices (below 865px) */
-  @media (max-width: 764px) {
+  @media (max-width: 799px) {
     .navbar {
       flex-direction: row;
       align-items: center;

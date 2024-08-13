@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Shopcart.module.css'
 
@@ -11,7 +11,6 @@ import { CartContext } from '../contexts/CartContextProvider';
 import Footer from './Footer';
 
 const Shopcart = () => {
-    
     const {state , dispatch} = useContext(CartContext)
     
     return (

@@ -51,8 +51,7 @@ const Signup = () => {
         await setDoc(doc(db, "users", user.uid), {
           username: data.username,
           email: data.email,
-          checkPolicy: data.checkPolicy,
-          userCartData:{},
+          password : data.password,
         });
 
         alert("Signup successful!");
