@@ -4,7 +4,6 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Shopcart from "./components/Shopcart";
-import Profile from "./components/Profile";
 import Store from "./components/Store";
 import ProductDetails from  "./components/shared/ProductDetails"
 import styles from './styles/App.module.css';
@@ -31,7 +30,6 @@ function App() {
               <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/products" element={<Store />} />
               <Route path="/cart" element={<Shopcart />} />
-              <Route path="/profile" element={<Profile />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route exact path="/" element={<Navigate to={"/home"} />} />
